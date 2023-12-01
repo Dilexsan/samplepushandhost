@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy New Year</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #001f3f;
+            color: #fff;
+        }
+
+        #countdown {
+            font-size: 3em;
+        }
+
+        #message {
+            font-size: 2em;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="countdown"></div>
+    <div id="message"></div>
+
+    <script>
+        // Set the time to start the countdown (current time + 10 seconds)
+        const startTime = new Date().getTime() + 10000;
+
+        // Update the countdown every 1 second
+        const x = setInterval(function() {
+
+            // Get the current date and time
+            const now = new Date().getTime();
+
+            // Calculate the remaining time
+            const distance = startTime - now;
+
+            // Calculate seconds
+            const seconds = Math.floor(distance / 1000);
+
+            // Display the countdown
+            document.getElementById("countdown").innerHTML = "Countdown: " + seconds + "s";
+
+            // Display a message when the countdown is over
+           if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("countdown").innerHTML = "Happy Birthday";
+    document.getElementById("message").innerHTML = "Kithurshika kirushnan";
+}
+
+        }, 1000);
+    </script>
+
+</body>
+</html>
